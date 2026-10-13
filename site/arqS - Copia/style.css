@@ -1,0 +1,556 @@
+/* =========================================================
+   Presente de Aniversário & Pedido — style.css
+   Paleta: azul pastel, azul marinho, lilás pastel, lilás vibrante
+   ========================================================= */
+
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Lora:ital,wght@1,400;1,500&family=Poppins:wght@300;400;500;600&display=swap');
+
+:root {
+  --azul-pastel: #D4E6F1;
+  --azul-marinho: #1B4F72;
+  --lilas-pastel: #E8DAEF;
+  --lilas-vibrante: #A569BD;
+  --lilas-vibrante-escuro: #8E44AD;
+  --off-white: #FCFBFC;
+  --sombra: 0 8px 24px rgba(27, 79, 114, 0.12);
+  --sombra-suave: 0 4px 14px rgba(165, 105, 189, 0.18);
+  --radius: 16px;
+  --transicao: all 0.35s ease;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(160deg, var(--off-white) 0%, var(--azul-pastel) 55%, var(--lilas-pastel) 100%);
+  min-height: 100vh;
+  color: var(--azul-marinho);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.container {
+  width: 100%;
+  max-width: 480px;
+  padding: 32px 20px 60px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  justify-content: center;
+}
+
+h1, h2, .titulo-romantico {
+  font-family: 'Dancing Script', cursive;
+  color: var(--azul-marinho);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: clamp(2rem, 8vw, 2.8rem);
+  margin-bottom: 24px;
+}
+
+h2 {
+  font-size: clamp(1.7rem, 7vw, 2.3rem);
+  margin-bottom: 20px;
+}
+
+p {
+  font-weight: 300;
+  line-height: 1.7;
+  font-size: 1rem;
+}
+
+/* ---------- Cards ---------- */
+.card {
+  background: var(--off-white);
+  border-radius: var(--radius);
+  box-shadow: var(--sombra);
+  padding: 28px 24px;
+  width: 100%;
+  transition: var(--transicao);
+}
+
+/* ---------- Botões ---------- */
+.btn {
+  display: inline-block;
+  background: var(--lilas-vibrante);
+  color: var(--off-white);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  border: none;
+  border-radius: 50px;
+  padding: 16px 32px;
+  margin-top: 28px;
+  cursor: pointer;
+  box-shadow: var(--sombra-suave);
+  transition: var(--transicao);
+  text-decoration: none;
+}
+
+.btn:hover,
+.btn:focus-visible {
+  background: var(--lilas-vibrante-escuro);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(165, 105, 189, 0.28);
+}
+
+.btn:focus-visible {
+  outline: 3px solid var(--azul-marinho);
+  outline-offset: 3px;
+}
+
+.btn-principal {
+  font-size: 1.1rem;
+  padding: 18px 36px;
+  animation: pulsar 2.4s ease-in-out infinite;
+}
+
+@keyframes pulsar {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(165, 105, 189, 0.35); }
+  50% { box-shadow: 0 0 0 12px rgba(165, 105, 189, 0); }
+}
+
+/* ---------- Tela 1: Parabéns ---------- */
+.bolo-ilustracao {
+  width: 180px;
+  height: auto;
+  margin-bottom: 8px;
+  animation: balancar 3s ease-in-out infinite;
+}
+
+@keyframes balancar {
+  0%, 100% { transform: rotate(-3deg); }
+  50% { transform: rotate(3deg); }
+}
+
+.confetes-fundo {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: -1;
+}
+
+/* ---------- Tela 2: Memórias ---------- */
+.grid-memorias {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+  width: 100%;
+  margin-bottom: 28px;
+}
+
+.foto-memoria {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: var(--sombra-suave);
+  transition: var(--transicao);
+}
+
+.foto-memoria:hover {
+  transform: scale(1.04);
+}
+
+.card-poema {
+  border-left: 4px solid var(--lilas-vibrante);
+}
+
+.card-poema p {
+  font-style: italic;
+  font-size: 1.05rem;
+  color: var(--azul-marinho);
+}
+
+.card-poema p + p {
+  margin-top: 12px;
+}
+
+/* ---------- Chat estilo Discord (memorias.html) ---------- */
+.legenda-chat {
+  font-size: 0.95rem;
+  color: var(--azul-marinho);
+  opacity: 0.75;
+  margin-bottom: 14px;
+}
+
+.discord {
+  width: 100%;
+  background: #313338;
+  border-radius: var(--radius);
+  box-shadow: var(--sombra);
+  overflow: hidden;
+  margin-bottom: 28px;
+  text-align: left;
+  font-family: 'Poppins', 'gg sans', sans-serif;
+}
+
+.discord-topo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 16px;
+  background: #2B2D31;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+  color: #F2F3F5;
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.discord-hash {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  min-width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+  background: var(--lilas-vibrante);
+  color: #80848E;
+  font-size: 1.25rem;
+  font-weight: 400;
+  line-height: 1;
+}
+
+/* Foto de perfil no cabeçalho: redonda e cortada no centro */
+.discord-hash img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.discord-mensagens {
+  padding: 16px 0 8px;
+  min-height: 300px;
+  max-height: 420px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #1A1B1E #313338;
+}
+
+.discord-mensagens::-webkit-scrollbar {
+  width: 8px;
+}
+
+.discord-mensagens::-webkit-scrollbar-thumb {
+  background: #1A1B1E;
+  border-radius: 4px;
+}
+
+.msg {
+  display: flex;
+  gap: 12px;
+  padding: 3px 16px;
+  opacity: 0;
+  transform: translateY(6px);
+  animation: msg-surgir 0.3s ease forwards;
+}
+
+.msg:hover {
+  background: rgba(0, 0, 0, 0.12);
+}
+
+@keyframes msg-surgir {
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Primeira mensagem de um bloco: tem avatar e cabeçalho */
+.msg-inicio {
+  margin-top: 14px;
+}
+
+.msg-avatar {
+  width: 38px;
+  height: 38px;
+  min-width: 38px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.msg-avatar {
+  position: relative;
+  overflow: hidden;
+  font-weight: 500;
+}
+
+/* A foto cobre a inicial; se a foto falhar, a inicial aparece */
+.msg-avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.msg-avatar-eu { background: var(--lilas-vibrante); }
+.msg-avatar-voce { background: #5865F2; }
+
+/* Espaço reservado no lugar do avatar em mensagens agrupadas */
+.msg-avatar-vazio {
+  width: 38px;
+  min-width: 38px;
+}
+
+.msg-conteudo {
+  flex: 1;
+  min-width: 0;
+}
+
+.msg-cabecalho {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 2px;
+  flex-wrap: wrap;
+}
+
+.msg-autor {
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+.msg-autor-eu { color: #C9A0E8; }
+.msg-autor-voce { color: #7CB7F0; }
+
+.msg-hora {
+  font-size: 0.7rem;
+  color: #949BA4;
+  font-weight: 300;
+}
+
+.msg-texto {
+  font-size: 0.93rem;
+  line-height: 1.45;
+  color: #DBDEE1;
+  font-weight: 300;
+  word-wrap: break-word;
+}
+
+.msg-reacao {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin-top: 6px;
+  padding: 3px 8px;
+  background: rgba(88, 101, 242, 0.15);
+  border: 1px solid rgba(88, 101, 242, 0.5);
+  border-radius: 8px;
+  font-size: 0.8rem;
+  color: #DBDEE1;
+}
+
+/* Narrador: comentário no meio da conversa */
+.narrador {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 18px 16px 10px;
+  opacity: 0;
+  animation: msg-surgir 0.5s ease forwards;
+}
+
+.narrador::before,
+.narrador::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: rgba(165, 105, 189, 0.45);
+}
+
+.narrador-texto {
+  max-width: 78%;
+  text-align: center;
+  font-family: 'Lora', Georgia, serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #C9A0E8;
+}
+
+/* Indicador "está digitando..." */
+.discord-digitando {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 16px;
+  font-size: 0.78rem;
+  color: #949BA4;
+  font-weight: 300;
+}
+
+.discord-digitando .pontos {
+  display: flex;
+  gap: 3px;
+}
+
+.discord-digitando .pontos span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #949BA4;
+  animation: piscar 1.1s infinite ease-in-out;
+}
+
+.discord-digitando .pontos span:nth-child(2) { animation-delay: 0.15s; }
+.discord-digitando .pontos span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes piscar {
+  0%, 100% { transform: translateY(0); opacity: 0.4; }
+  50% { transform: translateY(-3px); opacity: 1; }
+}
+
+.discord-input {
+  margin: 8px 16px 16px;
+  padding: 11px 16px;
+  background: #383A40;
+  border-radius: 8px;
+  color: #6D6F78;
+  font-size: 0.88rem;
+  font-weight: 300;
+}
+
+/* ---------- Tela 3: Motivos ---------- */
+.grid-motivos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  width: 100%;
+  margin: 24px 0 8px;
+}
+
+.card-motivo {
+  padding: 20px 14px;
+  background: var(--lilas-pastel);
+  box-shadow: none;
+}
+
+.card-motivo .icone {
+  font-size: 1.8rem;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.card-motivo p {
+  font-size: 0.9rem;
+  color: var(--azul-marinho);
+}
+
+/* ---------- Tela 4: Pedido ---------- */
+.palco-pedido {
+  position: relative;
+  width: 100%;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.grupo-botoes-pedido {
+  position: relative;
+  width: 100%;
+  min-height: 220px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+#btn-sim {
+  position: relative;
+  z-index: 2;
+}
+
+#btn-nao {
+  z-index: 3;
+  background: var(--azul-pastel);
+  color: var(--azul-marinho);
+  box-shadow: var(--sombra);
+}
+
+#btn-nao:hover {
+  background: var(--azul-pastel);
+  transform: none;
+}
+
+.card-comemoracao {
+  display: none;
+  margin-top: 32px;
+  background: var(--lilas-pastel);
+  border: 2px solid var(--lilas-vibrante);
+}
+
+.card-comemoracao.mostrar {
+  display: block;
+  animation: aparecer 0.5s ease forwards;
+}
+
+@keyframes aparecer {
+  from { opacity: 0; transform: translateY(12px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.card-comemoracao p {
+  font-family: 'Lora', Georgia, serif;
+  font-size: 1.6rem;
+  color: var(--azul-marinho);
+}
+
+/* ---------- Barra de progresso das telas ---------- */
+.progresso {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 32px;
+}
+
+.progresso span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--azul-pastel);
+}
+
+.progresso span.ativo {
+  background: var(--lilas-vibrante);
+}
+
+/* ---------- Responsivo ---------- */
+@media (min-width: 600px) {
+  .container {
+    max-width: 560px;
+  }
+
+  .grid-memorias {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
